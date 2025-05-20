@@ -7,16 +7,17 @@
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background-color: #ffe6f0;
+      background: linear-gradient(to bottom right, #ffe6f0, #ffd6ea);
       color: #d63384;
       text-align: center;
       padding: 2rem;
+      overflow-x: hidden;
     }
 
     h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      text-shadow: 1px 1px #fff0f5;
+      text-shadow: 2px 2px #fff0f5;
     }
 
     .gallery {
@@ -31,8 +32,9 @@
       background-color: #ffc2d1;
       border-radius: 15px;
       padding: 1rem;
-      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2);
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
       transition: transform 0.2s ease;
+      position: relative;
     }
 
     .photo-card:hover {
@@ -50,49 +52,120 @@
       font-size: 1rem;
       font-style: italic;
     }
+
+    .emoji {
+      font-size: 2rem;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .glitter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .glitter span {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ffb3d9;
+      border-radius: 50%;
+      animation: sparkle 2s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(800px) scale(0.5);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/28/audio_0db4f9399c.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="glitter">
+    <script>
+      for (let i = 0; i < 100; i++) {
+        const sparkle = document.createElement('span');
+        sparkle.style.left = Math.random() * 100 + 'vw';
+        sparkle.style.top = Math.random() * 100 + 'vh';
+        sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        document.querySelector('.glitter').appendChild(sparkle);
+      }
+    </script>
+  </div>
+
   <h1>👯‍♀️ Galeri Sahabat Tersayang 💕</h1>
   <p>Aku dan para sahabatku yang selalu ceria~ ✨</p>
   <div class="gallery">
     <div class="photo-card">
+      <span class="emoji">🐰</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/1.jpg" alt="Foto 1">
       <div class="caption">Ketawa bareng sampe perut sakit 😆</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🐱</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/2.jpg" alt="Foto 2">
       <div class="caption">Momen ngopi cantik ☕💕</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🐣</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/3.jpg" alt="Foto 3">
       <div class="caption">Geng sabtu ceria 🌸</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🐷</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/4.jpg" alt="Foto 4">
       <div class="caption">Wajah-wajah kelaparan 😋</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🦄</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/5.jpg" alt="Foto 5">
       <div class="caption">Pas joget TikTok gagal 💃🤣</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🐼</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/6.jpg" alt="Foto 6">
       <div class="caption">Tersesat tapi happy 🌈</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🐥</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/7.jpg" alt="Foto 7">
       <div class="caption">Kostum kompakan ala-ala 😍</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🧸</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/8.jpg" alt="Foto 8">
       <div class="caption">Mukbang all you can eat 🍣🍕</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🦊</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/9.jpg" alt="Foto 9">
       <div class="caption">Liburan yang penuh drama 🎢</div>
     </div>
     <div class="photo-card">
+      <span class="emoji">🦋</span>
       <img src="https://kamilianurunnadhifah.github.io/sikecil/10.jpg" alt="Foto 10">
       <div class="caption">Bestie 4LIFE 💗💗</div>
     </div>
